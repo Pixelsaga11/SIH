@@ -3,3 +3,54 @@
 .searchable-trains li>span{min-width:0}.train-name{display:block;color:#313953!important;font-size:10px}.searchable-trains li small{display:block;color:#a0a7b6;font-size:8px;font-weight:400;margin-top:5px}.searchable-trains li> b{display:flex;flex-direction:column;align-items:flex-end;gap:5px;color:#313953}.availability{font-style:normal;font:700 8px Manrope;padding:3px 5px;border-radius:4px}.availability.available{color:#198f6a;background:#e6f8f0}.availability.limited{color:#bd7b15;background:#fff4d9}.availability.unavailable{color:#d45160;background:#ffebee}
 .simulation-controls-card label{display:grid;color:#69738b;font-size:10px;margin-top:17px}.simulation-select select{margin-top:7px;height:35px;border:1px solid #e8eaf1;border-radius:5px;background:#fff;padding:0 9px;color:#3e4760;font:10px Manrope}.simulation-slider{grid-template-columns:1fr auto;gap:6px}.simulation-slider output{color:var(--blue);font:10px "DM Mono"}.simulation-slider input{grid-column:1/-1;width:100%;accent-color:var(--blue)}.simulation-button{margin-top:20px}.simulation-button span{font-size:15px}.simulation-status-dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px #25b48122}.simulation-status-dot.moderate{background:var(--amber);box-shadow:0 0 0 4px #eaa62b22}.simulation-status-dot.high{background:var(--red);box-shadow:0 0 0 4px #e75a6722}.simulation-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0 18px}.simulation-metrics div{border-right:1px solid var(--line);padding-right:8px}.simulation-metrics div:last-child{border:0}.simulation-metrics span{display:block;color:#9aa2b1;font-size:8px;margin-bottom:7px}.simulation-metrics strong{color:#252d48;font:700 18px "DM Mono"}.impact-track{height:7px;background:#edf0f5;border-radius:8px;overflow:hidden}.impact-track span{display:block;height:100%;width:16%;background:linear-gradient(90deg,var(--green),var(--amber),var(--red));border-radius:inherit;transition:width .25s}@media(max-width:720px){.simulation-metrics strong{font-size:15px}}
 .forecast-graph{display:flex;height:166px;margin:20px 0 7px}.graph-y-axis{display:flex;flex-direction:column;justify-content:space-between;padding:0 8px 18px 0;color:#a4abba;font:8px "DM Mono"}.graph-plot{position:relative;flex:1;min-width:0}.graph-grid{position:absolute;inset:0 0 18px;display:flex;flex-direction:column;justify-content:space-between}.graph-grid i{border-top:1px dashed #e7eaf1}.graph-plot svg{position:absolute;inset:0 0 18px;width:100%;height:calc(100% - 18px);overflow:visible}.graph-area{fill:#6574f71c}.graph-line{fill:none;stroke:var(--blue);stroke-width:3;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round;transition:d .3s}.graph-labels{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;color:#a4abba;font:8px "DM Mono"}.graph-legend{display:flex;gap:15px;color:#8b94a8;font-size:8px;margin-bottom:14px}.graph-legend span{display:flex;align-items:center;gap:5px}.graph-dot{width:6px;height:6px;border-radius:50%;display:inline-block}.on-time-dot{background:var(--blue)}.delay-dot{background:var(--amber)}@media(max-width:720px){.simulation-metrics strong{font-size:15px}.graph-labels{font-size:7px}}
+.feature-card{border-radius:16px;box-shadow:var(--shadow);border-color:#ececf2}
+.feature-hero h1{letter-spacing:-1.5px}
+.feature-search,.simulation-select select{border-radius:10px;border-color:#e1e3ea}
+.simulation-button{background:linear-gradient(135deg,#4f46e5,#7c3aed);border-radius:999px}
+.network-visual{background:linear-gradient(135deg,#312e81,#5b21b6);border-radius:16px}
+.mini-bars i{background:linear-gradient(#6366f1,#a78bfa)}
+.graph-line{stroke:#4f46e5}
+
+.feature-card{background:#0b1c30;border-color:#1d3a54;box-shadow:var(--shadow);border-radius:7px}
+.feature-card h2{color:#dcecff}
+.feature-card p,.feature-list li{color:#7f93a8}
+.feature-value{color:#20c9f3}
+.feature-list li{border-top-color:#1d354d}
+.feature-list b{color:#dcecff}
+.feature-search,.simulation-select select{background:#08192b;border-color:#24435d;color:#dcecff;border-radius:5px}
+.feature-search input{background:transparent;color:#dcecff;font-family:"DM Mono",Consolas,monospace}
+.simulation-button{background:#0878d1;border-radius:5px}
+.network-visual{background:#061323;border:1px solid #1d3a54;border-radius:7px}
+.mini-bars{border-bottom-color:#1d354d}
+.mini-bars i{background:linear-gradient(#20c9f3,#1565a8)}
+.graph-line{stroke:#20c9f3}
+.graph-area{fill:#20c9f31c}
+.graph-grid i{border-top-color:#1d354d}
+
+/* Increase contrast for train availability results without changing the theme. */
+.searchable-trains li>span .train-name{
+  color:#20c9f3!important;
+  font-weight:700;
+  text-shadow:0 0 8px rgba(32,201,243,.18);
+}
+.searchable-trains .train-name{
+  display:block;
+  padding:0;
+  border:0;
+  background:none;
+  cursor:pointer;
+  font:700 10px "DM Mono",Consolas,monospace;
+  text-align:left;
+}
+.searchable-trains .train-name:hover,
+.searchable-trains .train-name:focus{text-decoration:underline;text-underline-offset:3px}
+.searchable-trains li>span small{
+  color:#a9bfd3;
+}
+.searchable-trains li>b{
+  color:#e5f2ff!important;
+  font-weight:700;
+}
+.availability.available{color:#36e0a0;background:#103b35;border:1px solid #1f755d}
+.availability.limited{color:#f3c95d;background:#3b3015;border:1px solid #806322}
+.availability.unavailable{color:#ff8490;background:#401b28;border:1px solid #873545}

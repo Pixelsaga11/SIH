@@ -1,6 +1,0 @@
-{
-  "name": "RailSense Telemetry",
-  "description": "Tactical predictive telemetry dashboard for railway track, bridge, locomotive, and catenary infrastructure monitoring.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

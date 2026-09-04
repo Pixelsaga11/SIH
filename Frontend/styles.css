@@ -4,3 +4,90 @@
 #leafletMap{position:absolute;inset:0;z-index:0}.weather-panel{margin:17px 0}.weather-toolbar{display:flex;align-items:center;justify-content:space-between;margin:18px 0 12px}.weather-tabs{display:flex;gap:5px}.weather-tab{border:1px solid #e7e9f1;background:#fff;color:#8a92a6;border-radius:5px;padding:7px 11px;font:600 9px Manrope;cursor:pointer}.weather-tab.active,.weather-tab:hover{background:var(--blue-soft);border-color:#dce0ff;color:#6170ed}.weather-note{font:9px "DM Mono";color:#9da4b4}.weather-note .dot{margin-right:6px}.weather-map{height:310px;position:relative;overflow:hidden;border-radius:8px}.weather-legend,.weather-card{position:absolute;z-index:500;background:#ffffffed;border-radius:7px;box-shadow:0 4px 14px #52606d22}.weather-legend{left:16px;bottom:15px;width:172px;padding:10px 11px}.weather-legend strong{display:block;color:#515b72;font-size:9px;margin-bottom:7px}.legend-gradient{height:6px;border-radius:4px;background:linear-gradient(90deg,#6fc6c0,#f3d66a,#e97767)}.legend-values{display:flex;justify-content:space-between;color:#9099a9;font:8px "DM Mono";margin-top:5px}.weather-card{right:16px;top:15px;width:194px;padding:13px}.weather-card-top{display:flex;align-items:center;gap:9px}.weather-symbol{display:grid;place-items:center;width:29px;height:29px;border-radius:6px;background:#fff3cc;color:#e8a82d;font-size:17px}.weather-card strong{display:block;font-size:10px;color:#343d58}.weather-card small{display:block;color:#9ba4b1;font-size:8px;margin-top:3px}.weather-reading{display:flex;align-items:baseline;gap:8px;margin:13px 0 10px}.weather-reading strong{font:700 25px "DM Mono";color:#202944}.weather-reading span{font-size:9px;color:#8d96a9}.weather-details{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;border-top:1px solid #edf0f3;padding-top:9px;color:#9aa2b1;font-size:8px}.weather-details span:last-child{grid-column:1/-1}.weather-details b{color:#586279;margin-left:3px}.weather-leaflet-marker{background:transparent;border:0}.weather-leaflet-marker span{display:grid;place-items:center;min-width:38px;height:27px;padding:0 5px;border-radius:5px;background:#6675f5;color:#fff;font:700 10px "DM Mono";box-shadow:0 3px 8px #5260b755;border:2px solid #fff}.leaflet-control-zoom a{color:#4b5876!important}@media(max-width:720px){.weather-toolbar{align-items:flex-start;gap:10px;flex-direction:column}.weather-map{height:275px}.weather-card{right:10px;top:10px;width:165px}.weather-legend{left:10px;bottom:10px;width:145px}}
 .route-summary{margin-top:15px;border-top:1px solid #edf0f4;padding-top:16px}.route-summary.is-hidden{display:none}.route-summary-heading{display:flex;align-items:flex-start;justify-content:space-between}.route-summary h3{font-size:12px;margin:0 0 4px}.route-summary p{font-size:9px;color:#9ca4b3;margin:0}.route-stop-total{font:9px "DM Mono";color:#8b94a8}.route-stop-total strong{color:#5666ea;font-size:13px;margin-right:3px}.route-selector{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:14px 0}.route-option{border:1px solid #e9ebf2;background:#fff;text-align:left;border-radius:6px;padding:9px 10px;cursor:pointer}.route-option strong{display:block;color:#4a536b;font-size:9px}.route-option span{display:block;color:#9ca4b4;font-size:8px;margin-top:4px}.route-option b{color:#6675ed;font-weight:600}.route-option.active,.route-option:hover{border-color:#cfd4ff;background:#f7f8ff}.route-detail{display:flex;align-items:center;gap:18px;padding:11px 12px;background:#fafbfe;border:1px solid #eef0f5;border-radius:6px}.route-detail>div{display:flex;flex-direction:column;gap:4px}.route-label{font:8px "DM Mono";text-transform:uppercase;color:#a4abba}.route-detail strong{font-size:10px;color:#3e4760}.route-arrow{font-size:18px;color:#7380ee}.route-detail-divider{height:27px;border-left:1px solid #e3e6ee;margin-left:auto}.station-strip{display:flex;align-items:center;gap:7px;overflow-x:auto;white-space:nowrap;padding:13px 3px 1px;color:#788197;font-size:9px}.station-strip i{display:block;width:18px;border-top:1px dashed #b9c0d0}.station-dot{width:7px;height:7px;border-radius:50%;background:#6675f5;border:2px solid #dce0ff;flex-shrink:0}.station-dot.origin,.station-dot.destination{background:#25b481;border-color:#c8f0e1}@media(max-width:720px){.route-selector{grid-template-columns:1fr}.route-detail{gap:9px;flex-wrap:wrap}.route-detail-divider{display:none}.route-arrow{display:none}.station-strip{font-size:8px}}
 .forecast-lab{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin-top:17px}.confidence-card,.simulator-card{min-width:0}.confidence-badge{color:#1b9f74;background:#e8f8f1;border-radius:12px;padding:5px 8px;font:700 11px "DM Mono"}.confidence-meter{height:7px;background:#edf0f5;border-radius:8px;margin:18px 0 9px;overflow:hidden}.confidence-meter span{display:block;height:100%;width:92%;background:linear-gradient(90deg,#25b481,#6574f7);border-radius:inherit;transition:width .25s}.confidence-meta{display:flex;justify-content:space-between;align-items:center;font-size:9px}.confidence-meta strong{color:#1b9f74}.confidence-meta span{color:#a0a7b7}.confidence-reasons{display:grid;gap:6px;margin:15px 0 0;padding:0;list-style:none;color:#7f879b;font-size:9px}.confidence-reasons li:before{content:"✓";color:#25b481;font-weight:700;margin-right:7px}.simulator-icon{color:#6574f7;background:#eef0ff;border-radius:6px;padding:5px 9px;font:18px "DM Mono"}.simulator-controls{display:grid;gap:10px;margin:17px 0}.simulator-controls label{display:grid;grid-template-columns:1fr auto;gap:5px;color:#7f879b;font-size:9px}.simulator-controls output{color:#6574f7;font:9px "DM Mono"}.simulator-controls input{grid-column:1/-1;width:100%;height:4px;accent-color:#6574f7}.simulation-result{display:flex;align-items:baseline;gap:9px;border-top:1px solid #edf0f4;padding-top:12px}.simulation-result span{color:#9aa2b1;font-size:9px}.simulation-result strong{color:#252d48;font:700 20px "DM Mono"}.simulation-result b{color:#df9a22;font-size:8px}.simulator-card>.ghost-button{margin-top:12px}@media(max-width:720px){.forecast-lab{grid-template-columns:1fr}}
+/* Google AI Studio-inspired visual layer */
+:root{
+  --bg:#f7f8fc;
+  --surface:#ffffff;
+  --sidebar:#ffffff;
+  --ink:#202124;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+  --blue:#4f46e5;
+  --blue-soft:#eef2ff;
+  --green:#16a36f;
+  --amber:#d99016;
+  --red:#d9485f;
+  --shadow:0 10px 30px rgba(60,64,67,.08);
+}
+body{background:linear-gradient(135deg,#f8f9ff 0%,#f7f8fc 55%,#f3f0ff 100%);color:var(--ink)}
+.sidebar{background:rgba(255,255,255,.9);border-right:1px solid #ececf3;color:#5f6368;backdrop-filter:blur(18px)}
+.brand,.brand:hover,.brand:focus,.brand:visited{color:#202124}
+.brand small{color:#73777f}
+.brand-mark{border-color:#6366f1;background:#f4f3ff}
+.brand-mark span{background:#6366f1}
+.sidebar-label{color:#8a8d94}
+.nav-item{color:#5f6368}
+.nav-item.active,.nav-item:hover{background:linear-gradient(135deg,#eef2ff,#f3efff);color:#3730a3}
+.nav-item.active svg{color:#4f46e5}
+.nav-count{color:#4f46e5;background:#e8eaff}
+.system-status{border-color:#e7e8ee}
+.system-status strong,.profile strong{color:#3c4043}
+.system-status small,.profile small{color:#777b84}
+.avatar{background:#e8eaff;color:#4f46e5}
+.main-content{background:transparent}
+.topbar{border-bottom-color:#e6e7ed}
+.breadcrumb strong{color:#3c4043}
+.live-indicator{color:#3c4043}
+.stat-card,.panel{border-color:#ececf2;box-shadow:var(--shadow);border-radius:16px}
+.stat-card{background:rgba(255,255,255,.92)}
+.panel{background:rgba(255,255,255,.95)}
+.primary-button{background:linear-gradient(135deg,#4f46e5,#7c3aed);border-radius:999px;box-shadow:0 8px 18px rgba(79,70,229,.2)}
+.primary-button:hover{background:linear-gradient(135deg,#4338ca,#6d28d9)}
+.search-box,.filter-button{border-color:#e1e3ea;border-radius:10px}
+.filter-button.active-filter{background:#eef2ff;border-color:#d9ddff;color:#4338ca}
+.train-badge{color:#4f46e5;background:#eef2ff}
+.map-panel,.route-summary,.weather-panel{border-radius:16px}
+
+/* Dark telemetry control-room theme */
+:root{--bg:#061323;--surface:#0b1c30;--sidebar:#03101f;--ink:#d6e5f8;--muted:#7f93a8;--line:#1d354d;--blue:#20c9f3;--blue-soft:#0d2d45;--green:#36e0a0;--amber:#f3c95d;--red:#ff7180;--shadow:0 12px 26px rgba(0,0,0,.2)}
+body{background:#061323;color:var(--ink);font-family:"DM Mono",Consolas,monospace}
+.sidebar{background:#03101f;border-right:1px solid #173149;color:#8da4bb}
+.brand,.brand:hover,.brand:focus,.brand:visited{color:#dcecff}
+.brand strong,h1,.panel-heading h2,.stat-card strong,.service strong{color:#dcecff}
+.brand small,.sidebar-label,.system-status small,.profile small{color:#6e879f}
+.brand-mark{border-color:#20c9f3;background:#08283d}
+.brand-mark span{background:#20c9f3}
+.nav-item{color:#91a7bb;border-radius:5px;font-family:"DM Mono",Consolas,monospace}
+.nav-item.active,.nav-item:hover{background:#10283f;color:#20c9f3;box-shadow:inset 3px 0 #20c9f3}
+.nav-item.active svg{color:#20c9f3}
+.nav-count{color:#8fdcff;background:#173452}
+.system-status{border-color:#173149}
+.system-status strong,.profile strong{color:#dcecff}
+.avatar{background:#123653;color:#20c9f3}
+.topbar{border-bottom-color:#193249}
+.breadcrumb,.updated,.panel-heading p,.subtitle,.stat-card p,.stat-card small,td,th{color:#7f93a8}
+.breadcrumb strong{color:#cfe1f5}
+.live-indicator{color:#dcecff}
+.page-heading{padding-top:30px}
+.eyebrow{color:#6e879f}
+.primary-button{background:#0878d1;border:1px solid #159be7;border-radius:5px;box-shadow:0 5px 14px rgba(0,120,210,.25)}
+.primary-button:hover{background:#0b91e8}
+.stat-card,.panel{background:#0b1c30;border-color:#1d3a54;box-shadow:var(--shadow);border-radius:7px}
+.stat-icon{background:#102b43}
+.blue{color:#20c9f3;background:#0d3048}.purple{color:#b28cff;background:#2c1e4a}.stat-icon.amber{color:#f3c95d;background:#3b3015}.stat-icon.green{color:#36e0a0;background:#103b35}
+.trend.up{color:#36e0a0;background:#103b35}.trend.down{color:#f3c95d;background:#3b3015}.trend.neutral{color:#9aacc0;background:#17283a}
+.search-box,.filter-button{background:#08192b;border-color:#24435d;border-radius:5px;color:#9bb0c4}
+.search-box input{background:transparent;color:#dcecff;font-family:"DM Mono",Consolas,monospace}
+.filter-button.active-filter{background:#103651;border-color:#20c9f3;color:#20c9f3}
+td{border-top-color:#173149}
+.train-badge{color:#20c9f3;background:#103651}
+.status{font-family:"DM Mono",Consolas,monospace}
+.map-panel,.route-summary,.weather-panel{border-radius:7px}
+
+/* Keep the dashboard focused on the summary and weather map. */
+.weather-panel ~ section,
+.weather-panel ~ footer{display:none}
+.weather-panel ~ #routeSummary.route-focus{display:block}
+.station-stop{display:inline-flex;flex-direction:column;gap:3px}
+.station-stop b{font-size:9px}
+.station-stop small{font-size:7px;color:#8d9eb2}
