@@ -1,0 +1,6 @@
+{
+  "name": "LocoPilot AI",
+  "description": "Locomotive pilot real-time HUD and AI safety copilot with visibility & fog safety module, predictive train health warnings, sightline deficit telemetry, and master cockpit dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
