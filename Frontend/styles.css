@@ -91,3 +91,16 @@ td{border-top-color:#173149}
 .station-stop{display:inline-flex;flex-direction:column;gap:3px}
 .station-stop b{font-size:9px}
 .station-stop small{font-size:7px;color:#8d9eb2}
+.route-option{background:#0b1c30;border-color:#1d3a54}
+.route-option strong{color:#dcecff}
+.route-option span{color:#8da4bb}
+.route-option b{color:#20c9f3}
+.route-option.active,.route-option:hover{background:#102b43;border-color:#20c9f3}
+.route-detail{background:#0b1c30;border-color:#1d3a54}
+.route-detail strong{color:#dcecff}
+.route-label{color:#718aa1}
+.route-detail-divider{border-color:#1d3a54}
+.station-strip{color:#9bb0c4}
+.station-strip i{border-color:#31526c}
+.station-dot{background:#20c9f3;border-color:#164c68}
+.station-dot.origin,.station-dot.destination{background:#36e0a0;border-color:#1b705b}
