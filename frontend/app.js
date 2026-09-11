@@ -92,8 +92,21 @@ function renderRoute(routeKey) {
   document.getElementById("routeDestination").textContent = route.destination;
   document.getElementById("routeStops").textContent = `${route.stops.length} stations`;
   document.getElementById("routeHalts").textContent = `${route.halts} stops`;
-  document.getElementById("stationStrip").innerHTML = route.stops.map((stop, index) => `${index === 0 || index === route.stops.length - 1 ? `<span class="station-dot ${index === 0 ? "origin" : "destination"}"></span>` : ""}<span>${stop}</span>${index < route.stops.length - 1 ? "<i></i>" : ""}`).join("");
+  document.querySelector("#routeSummary .route-summary-heading p").textContent = `${route.origin} → ${route.destination} · ${route.type}`;
+  document.getElementById("stationStrip").innerHTML = route.stops.map((stop, index) => {
+    const terminal = index === 0 || index === route.stops.length - 1;
+    return `${terminal ? `<span class="station-dot ${index === 0 ? "origin" : "destination"}"></span>` : ""}<span class="station-stop"><b>${stop}</b><small>${terminal ? (index === 0 ? "Origin" : "Destination") : "Scheduled stop"}</small></span>${index < route.stops.length - 1 ? "<i></i>" : ""}`;
+  }).join("");
   updateForecastLab(routeKey);
+}
+const routeFromQuery = new URLSearchParams(window.location.search).get("route");
+if (routeFromQuery && routes[routeFromQuery]) {
+  const routeSummary = document.getElementById("routeSummary");
+  routeSummary.classList.remove("is-hidden");
+  routeSummary.classList.add("route-focus");
+  document.querySelectorAll(".route-option").forEach((option) => option.classList.toggle("active", option.dataset.route === routeFromQuery));
+  renderRoute(routeFromQuery);
+  routeSummary.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 document.querySelectorAll(".route-option").forEach((option) => option.addEventListener("click", () => {
   document.querySelectorAll(".route-option").forEach((item) => item.classList.remove("active"));
