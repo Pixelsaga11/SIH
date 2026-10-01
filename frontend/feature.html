@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RailSense — Feature view</title>
+  <script>
+    (function () {
+      var signedIn = sessionStorage.getItem("railsenseSignedIn") === "true" || localStorage.getItem("railsenseRemembered") === "true";
+      if (!signedIn) {
+        window.location.replace("login.html?returnTo=" + encodeURIComponent(window.location.href));
+      } else if (localStorage.getItem("railsenseRemembered") === "true") {
+        sessionStorage.setItem("railsenseSignedIn", "true");
+      }
+    }());
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -23,10 +33,10 @@
           <a class="nav-item" data-view="analytics" href="feature.html?view=analytics"><svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h17M8 16v-4m4 4V8m4 8V5m4 11v-7"/></svg>Analytics</a>
         </nav>
       </div>
-      <div class="sidebar-footer"><div class="system-status"><i class="pulse"></i><span><strong>Forecast engine</strong><small>Operational · 99.8% uptime</small></span></div><button class="profile"><span class="avatar">AK</span><span><strong>Arjun Kapoor</strong><small>Control room lead</small></span><span class="more">•••</span></button></div>
+      <div class="sidebar-footer"><div class="system-status"><i class="pulse"></i><span><strong>Forecast engine</strong><small>Operational · 99.8% uptime</small></span></div><button class="profile" id="logoutButton" type="button" title="Sign out"><span class="avatar">AK</span><span><strong>Arjun Kapoor</strong><small>Control room lead · Sign out</small></span><span class="more">•••</span></button></div>
     </aside>
     <main class="main-content feature-content">
-      <div class="topbar"><div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="breadcrumbTitle">Feature view</strong></div><div class="live-indicator"><i class="pulse"></i>Live system</div></div>
+      <div class="topbar"><a class="topbar-brand" href="index.html" aria-label="RailSense dashboard"><span class="brand-mark"><i></i><i></i><i></i></span><strong>RailSense</strong></a><div class="breadcrumb"><span>Workspace</span><b>/</b><strong id="breadcrumbTitle">Feature view</strong></div><div class="top-actions"><div class="live-indicator"><i class="pulse"></i>Live system</div><button class="top-profile-button" id="topProfileButton" type="button"><span class="avatar">AK</span><span><b>Arjun Kapoor</b><small>Operator</small></span><span>⌄</span></button><div class="profile-menu" id="profileMenu" hidden><strong>👤 Arjun Kapoor</strong><small>Control Room Operator</small><button type="button">Profile</button><button type="button">Notifications</button><button type="button">System Status</button><button type="button" id="topLogoutButton">Logout</button></div></div></div>
       <section class="feature-hero"><p class="eyebrow">RAILSENSE INTELLIGENCE</p><h1 id="featureTitle">Live train movement</h1><p id="featureSubtitle" class="subtitle">Monitor the network from a focused operational view.</p></section>
       <section class="feature-grid" id="featureGrid"></section>
     </main>

@@ -195,3 +195,83 @@ refreshButton.addEventListener("click", () => {
     setTimeout(() => toast.classList.remove("show"), 2600);
   }, 750);
 });
+
+const explanationDialog = document.getElementById("explanationDialog");
+document.getElementById("delayExplanationButton").addEventListener("click", () => explanationDialog.showModal());
+document.getElementById("closeExplanation").addEventListener("click", () => explanationDialog.close());
+const notificationButton = document.getElementById("notificationButton");
+const notificationPanel = document.getElementById("notificationPanel");
+notificationButton?.addEventListener("click", () => {
+  notificationPanel.hidden = !notificationPanel.hidden;
+  notificationButton.setAttribute("aria-expanded", String(!notificationPanel.hidden));
+});
+document.getElementById("notificationControl")?.addEventListener("click", (event) => {
+  event.currentTarget.textContent = "Demo alerts muted";
+});
+const assistantPanel = document.getElementById("aiAssistantPanel");
+const assistantMessages = document.getElementById("assistantMessages");
+const assistantInput = document.getElementById("assistantInput");
+const assistantAnswers = [
+  { match: ["most", "likely", "delay", "risk"], answer: "Demo analysis: 82902 Tejas Express is at highest risk, with signal congestion near Surat and a 73% forecast confidence." },
+  { match: ["82902", "why", "delayed"], answer: "Demo explanation: signal congestion contributes +7 minutes, the previous train +4 minutes, weather +2 minutes, and station dwell +1 minute." },
+  { match: ["action", "control", "recommend"], answer: "Recommended demo action: prioritize the train through the next signal block and monitor Surat corridor congestion." }
+];
+function answerAssistant(question) {
+  const normalized = question.toLowerCase();
+  const result = assistantAnswers.find((item) => item.match.some((term) => normalized.includes(term)));
+  return result?.answer || "Demo analysis: the network is stable overall, but signal congestion and weather remain the primary contributors to predicted delay.";
+}
+function askAssistant(question) {
+  const value = question.trim();
+  if (!value) return;
+  assistantMessages.insertAdjacentHTML("beforeend", `<p class="user-message">${value.replace(/[<>&"]/g, "")}</p><p class="assistant-message">${answerAssistant(value)}</p>`);
+  assistantMessages.scrollTop = assistantMessages.scrollHeight;
+}
+const assistantTrigger = document.getElementById("aiAssistantTrigger");
+assistantTrigger.addEventListener("click", () => {
+ assistantPanel.hidden = !assistantPanel.hidden;
+ assistantTrigger.classList.toggle("is-open", !assistantPanel.hidden);
+ assistantTrigger.setAttribute("aria-expanded", String(!assistantPanel.hidden));
+ if (!assistantPanel.hidden) assistantInput.focus();
+});
+document.getElementById("closeAssistant").addEventListener("click", () => { assistantPanel.hidden = true; assistantTrigger.classList.remove("is-open"); assistantTrigger.setAttribute("aria-expanded", "false"); });
+document.querySelectorAll(".assistant-prompts button").forEach((button) => button.addEventListener("click", () => askAssistant(button.dataset.question)));
+document.getElementById("assistantForm").addEventListener("submit", (event) => {
+  event.preventDefault();
+  askAssistant(assistantInput.value);
+  assistantInput.value = "";
+});
+const assistantHideAreas = [document.getElementById("weather"), document.getElementById("routeSummary")].filter(Boolean);
+const assistantVisibilityObserver = new IntersectionObserver((entries) => {
+  const detailVisible = entries.some((entry) => entry.isIntersecting);
+  assistantTrigger.classList.toggle("is-hidden", detailVisible);
+  if (detailVisible && !assistantPanel.hidden) {
+    assistantPanel.hidden = true;
+    assistantTrigger.classList.remove("is-open");
+    assistantTrigger.setAttribute("aria-expanded", "false");
+  }
+}, { threshold: 0.18 });
+assistantHideAreas.forEach((area) => assistantVisibilityObserver.observe(area));
+
+document.getElementById("logoutButton")?.addEventListener("click", () => {
+  sessionStorage.removeItem("railsenseSignedIn");
+  localStorage.removeItem("railsenseRemembered");
+  window.location.replace("login.html");
+});
+const topProfileButton = document.getElementById("topProfileButton");
+const profileMenu = document.getElementById("profileMenu");
+topProfileButton?.addEventListener("click", () => { profileMenu.hidden = !profileMenu.hidden; });
+document.getElementById("topLogoutButton")?.addEventListener("click", () => document.getElementById("logoutButton").click());
+document.addEventListener("click", (event) => {
+  if (notificationPanel && notificationButton && !notificationPanel.hidden && !notificationPanel.contains(event.target) && !notificationButton.contains(event.target)) {
+    notificationPanel.hidden = true;
+    notificationButton.setAttribute("aria-expanded", "false");
+  }
+  if (profileMenu && topProfileButton && !profileMenu.hidden && !profileMenu.contains(event.target) && !topProfileButton.contains(event.target)) profileMenu.hidden = true;
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && profileMenu && !profileMenu.hidden) {
+    profileMenu.hidden = true;
+    topProfileButton?.focus();
+  }
+});

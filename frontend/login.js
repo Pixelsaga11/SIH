@@ -9,6 +9,12 @@ const formMessage = document.getElementById("formMessage");
 const togglePassword = document.getElementById("togglePassword");
 const methodTabs = [...document.querySelectorAll(".method-tab")];
 let loginMethod = "email";
+const demoLoginButton = document.getElementById("demoLoginButton");
+
+const returnTo = new URLSearchParams(window.location.search).get("returnTo");
+if (sessionStorage.getItem("railsenseSignedIn") === "true" || localStorage.getItem("railsenseRemembered") === "true") {
+  window.location.replace(returnTo || "index.html");
+}
 
 methodTabs.forEach((tab) => tab.addEventListener("click", () => {
   loginMethod = tab.dataset.method;
@@ -46,10 +52,43 @@ form.addEventListener("submit", (event) => {
     passwordError.textContent = "Password must contain at least 6 characters.";
     valid = false;
   }
-  if (!valid) return;
+  if (!valid) {
+    form.classList.add("has-error");
+    return;
+  }
 
+  const submitButton = form.querySelector(".sign-in-button");
+  submitButton.disabled = true;
+  submitButton.classList.add("is-loading");
+  submitButton.innerHTML = "Connecting to Command Center <span class=\"loading-dots\">...</span>";
+  formMessage.classList.remove("is-success");
+  formMessage.textContent = "Verifying demo access...";
+  form.classList.remove("has-error");
+  setTimeout(() => {
+    sessionStorage.setItem("railsenseSignedIn", "true");
+    if (document.getElementById("remember").checked) {
+      localStorage.setItem("railsenseRemembered", "true");
+    } else {
+      localStorage.removeItem("railsenseRemembered");
+    }
+    submitButton.classList.remove("is-loading");
+    submitButton.classList.add("is-success");
+    submitButton.innerHTML = "Access granted <span>✓</span>";
+    formMessage.classList.add("is-success");
+    formMessage.textContent = "Access granted. Opening Command Center...";
+    setTimeout(() => { window.location.replace(returnTo || "index.html"); }, 450);
+  }, 650);
+});
+
+demoLoginButton.addEventListener("click", () => {
   sessionStorage.setItem("railsenseSignedIn", "true");
-  window.location.href = "index.html";
+  sessionStorage.setItem("railsenseDemoRole", "Control Room Operator");
+  formMessage.classList.add("is-success");
+  formMessage.textContent = "Demo access granted. Opening Command Center...";
+  demoLoginButton.disabled = true;
+  demoLoginButton.classList.add("is-success");
+  demoLoginButton.innerHTML = "Demo access granted <span>✓</span>";
+  setTimeout(() => window.location.replace(returnTo || "index.html"), 550);
 });
 
 document.getElementById("forgotPassword").addEventListener("click", (event) => {

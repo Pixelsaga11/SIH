@@ -19,9 +19,9 @@
           <div><strong>RailSense</strong><small>Dynamic Train ETA</small></div>
         </div>
         <div class="visual-copy">
-          <p class="eyebrow"><i></i>COACHING NETWORK CONTROL</p>
-          <h1>Make every journey<br /><em>more predictable.</em></h1>
-          <p>Monitor live movement, weather conditions, and dynamic ETA forecasts from one intelligent workspace.</p>
+          <p class="eyebrow"><i></i>RAILWAY INTELLIGENCE PLATFORM</p>
+          <h1>Predict delays.<br /><em>Prevent disruptions.</em><br />Move smarter.</h1>
+          <p>AI-powered railway intelligence for predictive operations, real-time network awareness and smarter decisions.</p>
         </div>
         <div class="signal-grid" aria-hidden="true">
           <svg viewBox="0 0 600 300" preserveAspectRatio="none"><path d="M5 245 C80 205 86 90 175 125 S240 260 325 185 S410 25 500 82 S560 150 595 92"/><path d="M5 80 C75 35 120 190 210 150 S300 55 370 95 S470 230 595 188"/></svg>
@@ -42,11 +42,12 @@
           <div><strong>RailSense</strong><small>Dynamic Train ETA</small></div>
         </div>
         <div class="login-heading">
-          <p class="eyebrow">WELCOME BACK</p>
+          <p class="eyebrow">WELCOME BACK · DEMO ACCESS</p>
           <h2>Sign in to your workspace</h2>
-          <p>Use your RailSense credentials to continue.</p>
+          <p>Use a demo identity to enter the RailSense Command Center.</p>
         </div>
         <form id="loginForm" novalidate>
+          <div class="access-mode"><span>ACCESS MODE</span><strong><i></i> Control Room Operator</strong><small>Demo workspace</small></div>
           <div class="login-methods" role="tablist" aria-label="Sign in method"><button type="button" class="method-tab active" data-method="email">Work email</button><button type="button" class="method-tab" data-method="mobile">Mobile number</button></div>
           <div id="emailLogin">
             <label for="email">Work email</label>
@@ -64,10 +65,14 @@
           <div class="forgot-row"><a href="#" id="forgotPassword">Forgot password?</a></div>
           <label class="remember"><input type="checkbox" id="remember" /> <span>Keep me signed in</span></label>
           <button class="sign-in-button" type="submit">Sign in <span>→</span></button>
+          <div class="login-divider"><span>OR</span></div>
+          <button class="demo-login-button" id="demoLoginButton" type="button">Enter Demo Control Room <span>→</span></button>
           <p class="form-message" id="formMessage" role="status"></p>
         </form>
+        <p class="demo-note"><span>DEMO LOGIN</span> Any valid work email or Indian mobile number with a 6+ character password.</p>
         <p class="login-footer">Need access? <a href="mailto:support@railsense.example">Contact your administrator</a></p>
-        <p class="security-note"><span>✓</span> Secure workspace · SSO ready</p>
+        <div class="login-status-grid"><span><i></i>All systems operational</span><span><i></i>Data engine online</span><span><i></i>Forecast engine operational</span></div>
+        <p class="security-note"><span>✓</span> Prototype demo access · No real credentials stored</p>
       </div>
     </section>
   </main>

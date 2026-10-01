@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RailSense AI-powered railway intelligence and dynamic ETA forecasting." />
+  <title>RailSense — Predict delays before they happen</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <main class="landing-shell">
+    <div class="landing-grid" aria-hidden="true"></div>
+    <header class="landing-nav">
+      <a class="brand" href="#home" aria-label="RailSense home"><div class="brand-mark"><span></span><span></span><span></span></div><div><strong>RailSense</strong><small>Dynamic Train ETA</small></div></a>
+      <nav aria-label="Public navigation"><a href="#home">Home</a><a href="#explore">Explore</a><a href="#how-it-works">How it works</a><a href="#innovation">Innovation</a></nav>
+      <div class="landing-nav-actions"><a class="landing-sign-in" href="login.html">Sign in</a></div>
+    </header>
+    <div class="landing-content">
+      <span id="home" class="anchor-target"></span>
+      <div class="brand">
+        <div class="brand-mark"><span></span><span></span><span></span></div>
+        <div><strong>RailSense</strong><small>Dynamic Train ETA</small></div>
+      </div>
+      <p class="eyebrow"><i></i>RAILWAY INTELLIGENCE PLATFORM</p>
+      <h1>Predict delays<br /><em>before they happen.</em></h1>
+      <p class="landing-copy">AI-assisted railway operations intelligence for safer, smarter, and more reliable train movement.</p>
+      <div class="landing-actions">
+        <a class="sign-in-button landing-button" id="landingCta" href="login.html">Explore RailSense <span>→</span></a>
+      </div>
+      <div class="landing-proof"><span><b>128</b> active services</span><span><b>94.8%</b> forecast accuracy</span><span><b>24/7</b> control visibility</span></div>
+      <p class="landing-note">Prototype environment · Forecasts are simulated demo data</p>
+    </div>
+    <section class="landing-section preview-section" id="explore">
+      <div class="section-heading"><p class="eyebrow"><i></i>OPERATIONAL PREVIEW</p><h2>See the network before the disruption.</h2><p>Guest access includes a guided view of the signals, weather and prediction context RailSense brings together.</p></div>
+      <div class="preview-grid">
+        <article class="preview-card network-preview"><span class="preview-label">LIVE NETWORK PREVIEW</span><div class="mini-network"><i class="mini-route route-a"></i><i class="mini-route route-b"></i><b class="mini-station s1"></b><b class="mini-station s2"></b><b class="mini-station s3"></b><span class="mini-train">›</span></div><strong>Routes, stations and movement</strong><small>See where services are flowing and where pressure is building.</small></article>
+        <article class="preview-card"><span class="preview-label">WEATHER IMPACT</span><div class="weather-preview"><strong>28°</strong><span>New Delhi · Clear skies</span><b>Wind 14 km/h · Humidity 64%</b></div><strong>Conditions along the corridor</strong><small>Weather signals are combined with network context for every forecast.</small></article>
+        <article class="preview-card"><span class="preview-label">AI FORECAST PREVIEW</span><div class="prediction-preview"><strong>+17 <small>min</small></strong><span>91% confidence</span><i><em></em></i></div><strong>Predict. Explain. Act.</strong><small>Operators see the likely delay, its causes and the next best action.</small><button class="preview-action protected-action" type="button">Unlock full forecast →</button></article>
+      </div>
+    </section>
+    <section class="landing-section split-section" id="how-it-works">
+      <div class="section-heading"><p class="eyebrow"><i></i>HOW RAILSENSE WORKS</p><h2>From raw signals to a confident decision.</h2></div>
+      <div class="workflow"><div><b>01</b><strong>Observe</strong><span>Movement, weather, congestion and incidents arrive in one operational view.</span></div><div><b>02</b><strong>Predict</strong><span>A deterministic prototype engine estimates arrival risk and confidence.</span></div><div><b>03</b><strong>Act</strong><span>Explainable recommendations help teams protect the network before delay spreads.</span></div></div>
+    </section>
+    <section class="landing-section innovation-section" id="innovation">
+      <div class="section-heading"><p class="eyebrow"><i></i>SIH INNOVATION</p><h2>Intelligence built for Indian railway operations.</h2><p>RailSense turns dynamic ETA forecasting into a shared control-room language for safer, smarter and more reliable train movement.</p></div>
+      <div class="innovation-points"><span>Explainable AI</span><span>What-if simulation</span><span>Weather intelligence</span><span>Network-wide impact</span><span>Operator-first decisions</span></div>
+    </section>
+    <footer class="landing-footer"><span>RailSense Forecast Engine · Prototype</span><span>Built for Smart India Hackathon</span></footer>
+  </main>
+  <div class="access-modal" id="accessModal" hidden><div class="modal-backdrop" data-close-modal></div><section class="access-dialog" role="dialog" aria-modal="true" aria-labelledby="accessTitle"><button class="modal-close" type="button" aria-label="Close access prompt" data-close-modal>×</button><p class="eyebrow"><i></i>OPERATOR ACCESS</p><h2 id="accessTitle">Unlock RailSense Intelligence</h2><p id="accessCopy">You’re exploring the RailSense network. Sign in to unlock advanced operational intelligence, AI predictions, simulations and real-time alerts.</p><div class="modal-actions"><a class="sign-in-button" id="modalSignIn" href="login.html">Sign in <span>→</span></a><button class="landing-secondary" type="button" data-close-modal>Continue exploring</button></div><small>Demo access available · No real credentials required</small></section></div>
+  <script>
+    (function () {
+      var modal = document.getElementById("accessModal");
+      var copy = document.getElementById("accessCopy");
+      var returnTo = new URLSearchParams(window.location.search).get("returnTo");
+      var signIn = document.getElementById("modalSignIn");
+      var isAuthenticated = sessionStorage.getItem("railsenseSignedIn") === "true" || localStorage.getItem("railsenseRemembered") === "true";
+      if (returnTo) signIn.href = "login.html?returnTo=" + encodeURIComponent(returnTo);
+      function openModal(message) { copy.textContent = message || "You’re exploring the RailSense network. Sign in to unlock advanced operational intelligence, AI predictions, simulations and real-time alerts."; modal.hidden = false; document.body.classList.add("modal-open"); modal.querySelector(".modal-close").focus(); }
+      function closeModal() { modal.hidden = true; document.body.classList.remove("modal-open"); }
+      document.querySelectorAll(".protected-action").forEach(function (button) { button.addEventListener("click", function () {
+        if (isAuthenticated) { window.location.href = "index.html"; return; }
+        openModal(button.classList.contains("preview-action") ? "AI Forecast requires operator access. Sign in to view detailed predictions, confidence scores and recommended actions." : "Sign in to enter the RailSense Control Center and unlock advanced operational intelligence.");
+      }); });
+      document.querySelectorAll("[data-close-modal]").forEach(function (element) { element.addEventListener("click", closeModal); });
+      document.addEventListener("keydown", function (event) { if (event.key === "Escape" && !modal.hidden) closeModal(); });
+      setTimeout(function () { if (!isAuthenticated && !sessionStorage.getItem("railsenseAccessPromptSeen")) { sessionStorage.setItem("railsenseAccessPromptSeen", "true"); openModal(); } }, 45000);
+    }());
+  </script>
+</body>
+</html>

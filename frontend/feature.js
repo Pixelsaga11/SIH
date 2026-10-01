@@ -32,6 +32,24 @@ document.getElementById("breadcrumbTitle").textContent = view.title;
 document.getElementById("featureSubtitle").textContent = view.subtitle;
 document.getElementById("featureGrid").innerHTML = view.cards.join("");
 document.querySelectorAll(".nav-item[data-view]").forEach((item) => item.classList.toggle("active", item.dataset.view === key));
+document.getElementById("logoutButton")?.addEventListener("click", () => {
+  sessionStorage.removeItem("railsenseSignedIn");
+  localStorage.removeItem("railsenseRemembered");
+  window.location.replace("login.html");
+});
+const topProfileButton = document.getElementById("topProfileButton");
+const profileMenu = document.getElementById("profileMenu");
+topProfileButton?.addEventListener("click", () => { profileMenu.hidden = !profileMenu.hidden; });
+document.getElementById("topLogoutButton")?.addEventListener("click", () => document.getElementById("logoutButton").click());
+document.addEventListener("click", (event) => {
+  if (profileMenu && topProfileButton && !profileMenu.hidden && !profileMenu.contains(event.target) && !topProfileButton.contains(event.target)) profileMenu.hidden = true;
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && profileMenu && !profileMenu.hidden) {
+    profileMenu.hidden = true;
+    topProfileButton?.focus();
+  }
+});
 
 if (key === "trains") {
   const trainSearch = document.getElementById("featureTrainSearch");
